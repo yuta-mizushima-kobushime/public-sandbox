@@ -1,0 +1,50 @@
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --text: #2d2a26;
+  --muted: #7a736a;
+  --accent: #b5651d;
+  --accent-text: #ffffff;
+  --border: #e6dfd4;
+  --danger: #b3261e;
+  --ok: #2e7d32;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 16px; }
+header h1 { margin: 0; font-size: 1.25rem; }
+header nav { font-size: 0.9rem; }
+main { max-width: 1040px; margin: 0 auto; padding: 16px; }
+h2 { font-size: 1.1rem; margin: 24px 0 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+.card h3 { margin: 0 0 4px; font-size: 1rem; }
+.muted { color: var(--muted); font-size: 0.85rem; }
+.price { font-weight: 600; font-size: 1.05rem; }
+button {
+  background: var(--accent); color: var(--accent-text); border: 0; border-radius: 6px;
+  padding: 8px 14px; font: inherit; cursor: pointer;
+}
+button.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+label { display: block; margin: 10px 0 4px; font-size: 0.9rem; }
+input, textarea, select {
+  width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font: inherit; background: #fff;
+}
+input[type="checkbox"] { width: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.table-wrap { overflow-x: auto; }
+.row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 720px) { .two-col { grid-template-columns: 1fr; } }
+.error { color: var(--danger); }
+.ok { color: var(--ok); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.8rem; border: 1px solid var(--border); }
+.hidden { display: none; }
