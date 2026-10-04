@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ギフトキャンドル</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>ギフトキャンドル</h1>
+    <nav><a href="#lookup">注文照会</a></nav>
+  </header>
+  <main>
+    <h2>商品一覧</h2>
+    <div id="products" class="grid"></div>
+
+    <div class="two-col">
+      <section>
+        <h2>カート</h2>
+        <div class="card">
+          <div id="cart-empty" class="muted">カートは空です</div>
+          <table id="cart-table" class="hidden">
+            <tbody id="cart-body"></tbody>
+          </table>
+          <p id="totals"></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>ご注文情報</h2>
+        <form id="order-form" class="card" novalidate>
+          <strong>ご注文者</strong>
+          <label>お名前 *<input name="customer_name" required></label>
+          <label>メールアドレス *<input name="customer_email" type="email" required></label>
+          <label>電話番号<input name="customer_phone" type="tel"></label>
+
+          <strong style="display:block;margin-top:16px">お届け先</strong>
+          <label><input type="checkbox" id="same-as-customer"> ご注文者と同じ</label>
+          <label>お名前 *<input name="recipient_name" required></label>
+          <label>郵便番号 *<input name="recipient_postal_code" placeholder="123-4567" required></label>
+          <label>住所 *<input name="recipient_address" required></label>
+          <label>電話番号<input name="recipient_phone" type="tel"></label>
+
+          <strong style="display:block;margin-top:16px">ギフトオプション</strong>
+          <label><input type="checkbox" name="gift_wrapping" id="gift-wrapping"> ギフトラッピング（<span id="wrapping-fee"></span>）</label>
+          <label>メッセージカード（200 文字まで）<textarea name="gift_message" rows="3" maxlength="200"></textarea></label>
+
+          <p id="form-error" class="error"></p>
+          <button type="submit" id="submit">注文する</button>
+        </form>
+        <div id="order-done" class="card hidden"></div>
+      </section>
+    </div>
+
+    <h2 id="lookup">注文照会</h2>
+    <form id="lookup-form" class="card">
+      <div class="two-col">
+        <label>注文番号<input name="order_number" required></label>
+        <label>メールアドレス<input name="email" type="email" required></label>
+      </div>
+      <p><button type="submit" class="secondary">照会する</button></p>
+      <div id="lookup-result"></div>
+    </form>
+  </main>
+  <script type="module" src="/shop.js"></script>
+</body>
+</html>
